@@ -21,10 +21,28 @@ div[id="2x-container"]
   > div
   > div
   > div
+  :first-child:first-child {
+  width: unset;
+  max-width: unset;
+}
+
+div[id="2x-container"]
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
   :first-child
   > div
   > div {
   width: auto;
+}
+
+[alt="User avatar"] {
+  height: 28px;
 }
 
 div[id="2x-container"]
