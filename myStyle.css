@@ -1,3 +1,8 @@
+div[data-click-id="media"] {
+  height: 900px !important;
+  max-height: 900px !important;
+}
+
 [style="max-width:100%"]:nth-of-type(2) > :first-child {
   width: 100%;
   margin-right: 0;
@@ -5,4 +10,9 @@
 
 [style="max-width:100%"]:nth-of-type(2) > :nth-child(2) {
   display: none;
+}
+
+.media-element {
+  height: 900px;
+  max-height: 900px;
 }
