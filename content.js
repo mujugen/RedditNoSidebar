@@ -1,65 +1,53 @@
-var linkElement = document.createElement("link");
+// Function to apply styles to images
+function applyStylesToImages(images) {
+  images.forEach((img) => {
+    img.style.height = "900px";
+    img.style.maxHeight = "900px";
+  });
+}
 
-// Set the rel attribute to 'stylesheet'
+// Function to adjust the height of divs
+function adjustDivHeights(divs) {
+  divs.forEach((div) => {
+    div.style.height = "900px";
+  });
+}
+
+// Create and append a stylesheet link
+const linkElement = document.createElement("link");
 linkElement.rel = "stylesheet";
-
-// Set the href attribute to the URL of your CSS file
 linkElement.href = chrome.runtime.getURL("myStyle.css");
-
-// Append the link element to the document's head
 document.head.appendChild(linkElement);
 
 // Select the target element
-let targetElement = document.querySelector(
+const targetElement = document.querySelector(
   "[data-scroller-first]"
 ).parentElement;
 
-let images = document.querySelectorAll('img[alt="Post image"]');
-images.forEach((img) => {
-  // Apply the styles to each image
-  img.style.height = "900px";
-  img.style.maxHeight = "900px";
-});
-// Select all div elements with tabindex="-1"
-const allDivs = document.querySelectorAll('div[tabindex="-1"]');
+// Apply styles to existing images
+applyStylesToImages(document.querySelectorAll('img[alt="Post image"]'));
 
-// Filter these divs to get only those with a style attribute that includes 'height:'
-const divsWithRandomHeight = Array.from(allDivs).filter((div) => {
-  const style = div.getAttribute("style");
-  return style && style.includes("height:");
-});
+// Adjust height of existing divs with specific style
+adjustDivHeights(
+  Array.from(document.querySelectorAll('div[tabindex="-1"]')).filter((div) =>
+    div.getAttribute("style")?.includes("height:")
+  )
+);
 
-// Set the height of each filtered div to 900px
-divsWithRandomHeight.forEach((div) => {
-  div.style.height = "900px";
-});
-
-// Create a callback function to execute when mutations are observed
-const callback = function (mutationsList, observer) {
+// Callback for mutation observer
+const callback = function (mutationsList) {
   for (let mutation of mutationsList) {
     if (mutation.type === "childList" && mutation.addedNodes.length > 0) {
       mutation.addedNodes.forEach((node) => {
-        // Check if the node is an element node
         if (node.nodeType === Node.ELEMENT_NODE) {
-          // Find all images with alt="Post image" within this node
-          let images = node.querySelectorAll('img[alt="Post image"]');
-          images.forEach((img) => {
-            // Apply the styles to each image
-            img.style.height = "900px";
-            img.style.maxHeight = "900px";
-          });
-          const allDivs = document.querySelectorAll('div[tabindex="-1"]');
-
-          // Filter these divs to get only those with a style attribute that includes 'height:'
-          const divsWithRandomHeight = Array.from(allDivs).filter((div) => {
-            const style = div.getAttribute("style");
-            return style && style.includes("height:");
-          });
-
-          // Set the height of each filtered div to 900px
-          divsWithRandomHeight.forEach((div) => {
-            div.style.height = "900px";
-          });
+          // Apply styles to new images
+          applyStylesToImages(node.querySelectorAll('img[alt="Post image"]'));
+          // Adjust height of new divs
+          adjustDivHeights(
+            Array.from(node.querySelectorAll('div[tabindex="-1"]')).filter(
+              (div) => div.getAttribute("style")?.includes("height:")
+            )
+          );
         }
       });
     }
@@ -69,14 +57,8 @@ const callback = function (mutationsList, observer) {
 // Create an instance of MutationObserver with the callback
 let observer = new MutationObserver(callback);
 
-// Set up the observation options
-const config = {
-  childList: true, // Observes direct children
-  subtree: true, // Observes all descendants (not just direct children)
-};
-
-// Start observing the target element
-observer.observe(targetElement, config);
+// Set up the observation options and start observing
+observer.observe(targetElement, { childList: true, subtree: true });
 
 // To later disconnect the observer
 // observer.disconnect();
