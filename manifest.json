@@ -6,8 +6,13 @@
   "permissions": ["activeTab", "scripting"],
   "content_scripts": [
     {
-      "matches": ["https://www.reddit.com/*"],
+      "matches": ["https://www.reddit.com/"],
       "js": ["content.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["https://www.reddit.com/r/*"],
+      "js": ["script2.js"],
       "run_at": "document_end"
     }
   ],
@@ -22,6 +27,10 @@
   "web_accessible_resources": [
     {
       "resources": ["myStyle.css"],
+      "matches": ["https://www.reddit.com/*"]
+    },
+    {
+      "resources": ["style2.css"],
       "matches": ["https://www.reddit.com/*"]
     }
   ],

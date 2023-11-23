@@ -7,6 +7,11 @@ div[data-click-id="media"] {
   width: 100%;
   margin-right: 0;
 }
+@media screen and (min-width: 1200px) {
+  [style="max-width:100%"]:nth-of-type(2) > :first-child {
+    width: 50%;
+  }
+}
 
 [style="max-width:100%"]:nth-of-type(2) > :nth-child(2) {
   display: none;
@@ -15,46 +20,4 @@ div[data-click-id="media"] {
 .media-element {
   height: 700px;
   max-height: 700px;
-}
-
-div[id="2x-container"]
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  :first-child {
-  width: 100%;
-  max-width: none;
-}
-
-div[id="2x-container"]
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  :first-child
-  > div
-  > div {
-  width: auto;
-}
-
-div[id="2x-container"]
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div
-  > div[style="margin-left:24px;margin-top:0"] {
-  display: none;
 }
