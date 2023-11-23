@@ -1,16 +1,10 @@
-window.onload = function () {
-  const parentElement = document.querySelectorAll(
-    '[style="max-width:100%"]'
-  )[1];
-  if (parentElement) {
-    const sidebar = parentElement.children[1];
-    if (sidebar) {
-      sidebar.remove();
-    }
-    const mainContent = parentElement.children[0];
-    if (mainContent) {
-      mainContent.style.width = "100%";
-      mainContent.style.marginRight = "0";
-    }
-  }
-};
+var linkElement = document.createElement("link");
+
+// Set the rel attribute to 'stylesheet'
+linkElement.rel = "stylesheet";
+
+// Set the href attribute to the URL of your CSS file
+linkElement.href = chrome.runtime.getURL("myStyle.css");
+
+// Append the link element to the document's head
+document.head.appendChild(linkElement);

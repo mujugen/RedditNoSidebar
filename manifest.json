@@ -19,6 +19,12 @@
       "128": "images/icon128.png"
     }
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["myStyle.css"],
+      "matches": ["https://www.reddit.com/*"]
+    }
+  ],
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
