@@ -1,6 +1,6 @@
 div[data-click-id="media"] {
-  height: 900px !important;
-  max-height: 900px !important;
+  height: 700px !important;
+  max-height: 700px !important;
 }
 
 [style="max-width:100%"]:nth-of-type(2) > :first-child {
@@ -13,6 +13,6 @@ div[data-click-id="media"] {
 }
 
 .media-element {
-  height: 900px;
-  max-height: 900px;
+  height: 700px;
+  max-height: 700px;
 }

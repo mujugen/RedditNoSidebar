@@ -1,15 +1,15 @@
 // Function to apply styles to images
 function applyStylesToImages(images) {
   images.forEach((img) => {
-    img.style.height = "900px";
-    img.style.maxHeight = "900px";
+    img.style.height = "700px";
+    img.style.maxHeight = "700px";
   });
 }
 
 // Function to adjust the height of divs
 function adjustDivHeights(divs) {
   divs.forEach((div) => {
-    div.style.height = "900px";
+    div.style.height = "700px";
   });
 }
 
