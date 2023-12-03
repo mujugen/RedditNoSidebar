@@ -21,3 +21,9 @@ div[data-click-id="media"] {
   height: 700px;
   max-height: 700px;
 }
+
+img[alt="Post image"] {
+  width: 100%; /* Fill the width of the parent */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 700px;
+}

@@ -1,8 +1,23 @@
 // Function to apply styles to images
 function applyStylesToImages(images) {
   images.forEach((img) => {
-    img.style.height = "700px";
-    img.style.maxHeight = "700px";
+    // Trigger the image to load its dimensions
+    img.onload = function () {
+      if (img.clientHeight < 700) {
+        // If the height is less than 700px, set the height to 700px
+        // and change width to auto to maintain aspect ratio
+        img.style.maxHeight = "700px";
+        img.style.height = "700px";
+        img.style.width = "auto";
+      }
+    };
+
+    // In case the image is already loaded
+    if (img.complete && img.clientHeight < 700) {
+      img.style.maxHeight = "700px";
+      img.style.height = "700px";
+      img.style.width = "auto";
+    }
   });
 }
 

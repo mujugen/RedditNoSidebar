@@ -57,3 +57,7 @@ div[id="2x-container"]
   > div[style="margin-left:24px;margin-top:0"] {
   display: none;
 }
+
+.threadline {
+  width: 20px !important;
+}
