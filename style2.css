@@ -61,3 +61,15 @@ div[id="2x-container"]
 .threadline {
   width: 20px !important;
 }
+
+.Comment{
+  padding-left: 30px !important;
+}
+
+#right-sidebar-container{
+  display: none;
+}
+
+#main-content{
+  width: 1030px !important;
+}

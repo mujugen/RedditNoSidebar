@@ -1,22 +1,18 @@
 // Function to apply styles to images
-function applyStylesToImages(images) {
-  images.forEach((img) => {
+function applyStylesToImages(divs) {
+  divs.forEach((div) => {
     // Trigger the image to load its dimensions
-    img.onload = function () {
-      if (img.clientHeight < 700) {
+    div.onload = function () {
+      if (div.clientHeight < 700) {
         // If the height is less than 700px, set the height to 700px
         // and change width to auto to maintain aspect ratio
-        img.style.maxHeight = "700px";
-        img.style.height = "700px";
-        img.style.width = "auto";
+        div.style.setProperty("--max-height", "700px");
       }
     };
 
     // In case the image is already loaded
-    if (img.complete && img.clientHeight < 700) {
-      img.style.maxHeight = "700px";
-      img.style.height = "700px";
-      img.style.width = "auto";
+    if (div.complete && div.clientHeight < 700) {
+      div.style.setProperty("--max-height", "700px");
     }
   });
 }
@@ -25,6 +21,14 @@ function applyStylesToImages(images) {
 function adjustDivHeights(divs) {
   divs.forEach((div) => {
     div.style.height = "700px";
+  });
+}
+// Function to apply styles to shreddit-aspect-ratio elements
+function applyStylesToShredditAspectRatioElements(elements) {
+  console.log("hello");
+  elements.forEach((element) => {
+    // Set the --max-height property to 700px
+    element.style.setProperty("--max-height", "700px");
   });
 }
 
@@ -36,8 +40,8 @@ document.head.appendChild(linkElement);
 
 // Select the target element
 const targetElement = document.querySelector(
-  "[data-scroller-first]"
-).parentElement;
+  "#main-content > report-flow-provider > shreddit-feed"
+);
 
 // Apply styles to existing images
 applyStylesToImages(document.querySelectorAll('img[alt="Post image"]'));
@@ -47,6 +51,11 @@ adjustDivHeights(
   Array.from(document.querySelectorAll('div[tabindex="-1"]')).filter((div) =>
     div.getAttribute("style")?.includes("height:")
   )
+);
+
+// Apply styles to existing shreddit-aspect-ratio elements
+applyStylesToShredditAspectRatioElements(
+  document.querySelectorAll("shreddit-aspect-ratio")
 );
 
 // Callback for mutation observer
@@ -62,6 +71,10 @@ const callback = function (mutationsList) {
             Array.from(node.querySelectorAll('div[tabindex="-1"]')).filter(
               (div) => div.getAttribute("style")?.includes("height:")
             )
+          );
+          // Apply styles to new shreddit-aspect-ratio elements
+          applyStylesToShredditAspectRatioElements(
+            node.querySelectorAll("shreddit-aspect-ratio")
           );
         }
       });

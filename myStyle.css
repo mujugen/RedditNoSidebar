@@ -27,3 +27,15 @@ img[alt="Post image"] {
   height: auto; /* Maintain aspect ratio */
   max-height: 700px;
 }
+
+.main{
+  width: 1020px !important;
+}
+
+div[slot="post-media-container"]{
+  height: 700px !important;
+}
+
+#right-sidebar-container{
+  display: none;
+}
