@@ -23,19 +23,19 @@ div[data-click-id="media"] {
 }
 
 img[alt="Post image"] {
-  width: 100%; /* Fill the width of the parent */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 700px;
+  width: 100%;
+  /* height: auto; */
+  max-height: 700px !important;
 }
 
-.main{
+.main {
   width: 1020px !important;
 }
 
-div[slot="post-media-container"]{
+div[slot="post-media-container"] {
   height: 700px !important;
 }
 
-#right-sidebar-container{
+#right-sidebar-container {
   display: none;
 }
