@@ -39,3 +39,11 @@ div[slot="post-media-container"] {
 #right-sidebar-container {
   display: none;
 }
+
+div.media-lightbox-img {
+  height: 127% !important;
+}
+
+img.media-lightbox-img {
+  height: 100% !important;
+}
