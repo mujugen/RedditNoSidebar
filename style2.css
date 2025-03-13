@@ -62,14 +62,79 @@ div[id="2x-container"]
   width: 20px !important;
 }
 
-.Comment{
+.Comment {
   padding-left: 30px !important;
 }
 
-#right-sidebar-container{
+#right-sidebar-container {
   display: none;
 }
 
-#main-content{
+#main-content {
   width: 1030px !important;
+}
+div[data-click-id="media"] {
+  height: 700px !important;
+  max-height: 700px !important;
+}
+
+[style="max-width:100%"]:nth-of-type(2) > :first-child {
+  width: 100%;
+  margin-right: 0;
+}
+@media screen and (min-width: 1200px) {
+  [style="max-width:100%"]:nth-of-type(2) > :first-child {
+    width: 50%;
+  }
+}
+
+[style="max-width:100%"]:nth-of-type(2) > :nth-child(2) {
+  display: none;
+}
+
+.media-element {
+  height: 700px;
+  max-height: 700px;
+}
+
+img[alt="Post image"] {
+  width: 100%;
+  /* height: auto; */
+  max-height: 700px !important;
+}
+
+.main {
+  width: 100% !important;
+}
+
+.main-container {
+  display: flex !important;
+}
+
+div[slot="post-media-container"] {
+  height: 700px !important;
+}
+
+#right-sidebar-container {
+  display: none;
+}
+
+#left-sidebar-container {
+  display: none;
+}
+
+div.media-lightbox-img {
+  height: 127% !important;
+}
+
+img.media-lightbox-img {
+  height: 100% !important;
+}
+
+shreddit-feed {
+  width: 100% !important;
+}
+
+body > shreddit-app > div.grid-container.theme-rpl.grid.flex-nav-expanded {
+  display: flex;
 }

@@ -29,7 +29,11 @@ img[alt="Post image"] {
 }
 
 .main {
-  width: 1020px !important;
+  width: 100% !important;
+}
+
+.main-container {
+  display: flex !important;
 }
 
 div[slot="post-media-container"] {
@@ -37,6 +41,10 @@ div[slot="post-media-container"] {
 }
 
 #right-sidebar-container {
+  display: none;
+}
+
+#left-sidebar-container {
   display: none;
 }
 
@@ -49,5 +57,9 @@ img.media-lightbox-img {
 }
 
 shreddit-feed {
-  width: 145% !important;
+  width: 100% !important;
+}
+
+body > shreddit-app > div.grid-container.theme-rpl.grid.flex-nav-expanded {
+  display: flex;
 }
